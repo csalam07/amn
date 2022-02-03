@@ -1,11 +1,6 @@
 import Head from "next/head";
 import Header from "../components/Header";
 import Delete from "../components/Delete";
-import HeroSection from "../components/HeroSection";
-import MenuSection from "../components/MenuSection";
-import AboutSection from "../components/AboutSection";
-import ServicesSection from "../components/ServicesSection";
-import AddBanner from "../components/AddBanner";
 import Footer from "../components/Footer";
 import { useSelector } from "react-redux";
 import { selectTheme } from "../slices/themeSlice";
@@ -14,7 +9,7 @@ import config from "react-reveal/globals";
 
 config({ ssrFadeout: true });
 
-export default function Home() {
+export default function Checkout() {
   const darkTheme = useSelector(selectTheme);
 
   return (
@@ -24,26 +19,22 @@ export default function Home() {
       } min-h-screen transition duration-1000 ease-in`}
     >
       <Head>
-        <title>Foodie.Order</title>
+        <title>Checkout || Foodie.Order</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      <Header />
 
       <mian className="">
         {/* <Delete /> */}
 
-        <Header />
-        <HeroSection />
-        <Slide bottom>
-          <MenuSection />
-        </Slide>
-        <AboutSection />
-
-        <ServicesSection />
-
-        <AddBanner />
-
-        <Footer />
+        <div className="checkout__banner"></div>
+        <div className="checkout__products">
+          <div>product</div>
+          <div>checkout</div>
+        </div>
       </mian>
+      <Footer />
     </div>
   );
 }
